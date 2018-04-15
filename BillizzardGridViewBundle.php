@@ -3,7 +3,7 @@
 namespace Billizzard\GridView;
 
 use Doctrine\ORM\QueryBuilder;
-use Billizzard\GridView\View\UrlBuilder;
+use Billizzard\GridView\Helper\UrlBuilder;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
