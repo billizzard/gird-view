@@ -1,7 +1,7 @@
 <?php
 
 
-namespace HVF\GridView\Twig;
+namespace Billizzard\GridView\Twig;
 
 
 use Twig\Extension\AbstractExtension;

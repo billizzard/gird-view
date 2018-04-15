@@ -1,5 +1,5 @@
 <?php
-namespace HVF\GridView\View;
+namespace Billizzard\GridView\View;
 
 class UrlBuilder
 {
