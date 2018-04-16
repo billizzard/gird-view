@@ -9,11 +9,9 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class GridViewExtension extends \Twig_Extension
 {
-    private $requestStack;
 
     public function __construct(RequestStack $requestStack)
     {
-        //$this->requestStack = $requestStack;
     }
 
     public function getFunctions()
@@ -29,6 +27,10 @@ class GridViewExtension extends \Twig_Extension
 
     public function gridView(\Twig_Environment $environment, $models)
     {
-        echo $environment->render('Templates/table.html.twig', ['models' => $models]);
+        //$loader = new \Twig_Loader_Filesystem(__DIR__ . '/Templates/');
+        /** @var \Twig_Loader_Filesystem $loader */
+        $loader = $environment->getLoader();
+        $loader->addPath(__DIR__ . '/templates/');
+        echo $environment->render('bz-grid-view.html.twig', ['models' => $models]);
     }
 }
