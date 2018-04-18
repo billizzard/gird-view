@@ -12,7 +12,11 @@
     <services>
 
         <!-- Twig Extension -->
-        <service id="twig.extension.billipager" class="Billizzard\GridView\Twig\GridViewExtension" public="false">
+        <service id="twig.extension.billigridview" class="Billizzard\GridView\Twig\GridViewExtension" public="false">
+            <tag name="twig.extension" />
+            <argument type="service" id="request_stack" on-invalid="null" />
+        </service>
+        <service id="twig.extension.billigridview2" class="Billizzard\GridView\Twig\GridView2Extension" public="false">
             <tag name="twig.extension" />
             <argument type="service" id="request_stack" on-invalid="null" />
         </service>

@@ -141,7 +141,11 @@ class GridView
         $result['pagination'] = $this->conf['pagination'];
 
         $currentResults = (array)$pager->getCurrentPageResults();
+
         $result['pagination']['total'] = $pager->getNbResults();
+        $result['pagination']['fromCurPageItem'] = $result['pagination']['curPage'] == 1 ? 1 : $this->conf['pagination']['perPage'] * ($this->conf['pagination']['curPage'] - 1) + 1;
+        $result['pagination']['onCurPageItem'] = $this->conf['pagination']['perPage'] * $result['pagination']['curPage'] > $result['pagination']['total'] ? $result['pagination']['total'] - $this->conf['pagination']['perPage'] * ($result['pagination']['curPage'] - 1) : $this->conf['pagination']['perPage'];
+        $result['pagination']['toCurPageItem'] = $result['pagination']['fromCurPageItem'] + $result['pagination']['onCurPageItem'] - 1;
         $result['pagination']['totalPage'] = ceil($result['pagination']['total']/$result['pagination']['perPage']);
         $result['pagination']['url'] = $this->urlBuilder->resetUrl()->removeParam('page')->addParam('page', '')->getUrl();
         if ($result['pagination']['totalPage'] > 0) {
